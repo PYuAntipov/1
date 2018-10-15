@@ -4,8 +4,6 @@ class BitcoinAddress:
 
     def __init__(self):
         self.privateKey, self.publicKey = self.generate()
-        print(self.privateKey)
-        print(self.publicKey)
 
     def ripemd160(self, x):
         d = hashlib.new('ripemd160')
@@ -33,4 +31,6 @@ class BitcoinAddress:
 
 while(True):
     addr = BitcoinAddress()
-    print(blockcypher.get_total_balance(addr.publicKey))
+    balance = blockcypher.get_total_balance(addr.publicKey)
+    if(balance != 0):
+        print(balance, addr.publicKey, addr.privateKey)
