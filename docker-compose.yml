@@ -1,0 +1,5 @@
+version: '3.7'
+
+services:
+  btc-private-key-balances:
+    image: btc-private-key-balances
