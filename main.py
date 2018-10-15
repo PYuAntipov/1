@@ -29,8 +29,13 @@ class BitcoinAddress:
         publ_addr_b = base58.b58encode(publ_addr_a + checksum)
         return (WIF.decode(), publ_addr_b.decode())
 
+counter = 0
+
 while(True):
     addr = BitcoinAddress()
     balance = blockcypher.get_total_balance(addr.publicKey)
     if(balance != 0):
         print(balance, addr.publicKey, addr.privateKey)
+    if(counter % 1000 == 0):
+        print('Queries: ', counter)
+    counter += 1
