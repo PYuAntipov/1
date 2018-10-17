@@ -1,4 +1,4 @@
-import os, binascii, hashlib, base58, ecdsa, blockcypher
+import os, binascii, hashlib, base58, ecdsa, blockcypher, time
 
 class BitcoinAddress:
 
@@ -39,3 +39,4 @@ while(True):
     if(counter % 1000 == 0):
         print('Queries: ', counter)
     counter += 1
+    time.sleep(18) # wait 18 seconds --> 200 requests per hour, limit of blockcypher API
