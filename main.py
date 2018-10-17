@@ -33,6 +33,7 @@ counter = 0
 
 while(True):
     addr = BitcoinAddress()
+    balance = 0
     try:
         balance = blockcypher.get_total_balance(addr.publicKey)
     except:
