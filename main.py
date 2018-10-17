@@ -33,7 +33,10 @@ counter = 0
 
 while(True):
     addr = BitcoinAddress()
-    balance = blockcypher.get_total_balance(addr.publicKey)
+    try:
+        balance = blockcypher.get_total_balance(addr.publicKey)
+    except:
+        print("API limitation exceeded")
     if(balance != 0):
         print(balance, addr.publicKey, addr.privateKey)
     if(counter % 1000 == 0):
